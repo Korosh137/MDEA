@@ -19,7 +19,7 @@ function delta  = MDEA(Data, Stripesize, Rule, ST, EN, PLOT)
 % The relationship between the scaling evaluated with each of these rules
 % and the temporal complexity index mu is described in details in:
 % [1] Grigolini, P., Palatella, L., & Raffelli, G. (2001). Asymmetric anomalous diffusion: An efficient way to detect memory in time series. Fractals,
-% 09(04),439–449. https://doi.org/10.1142/s0218348x01000865
+% 09(04),439â€“449. https://doi.org/10.1142/s0218348x01000865
 % [2] Scafetta, N., & Grigolini, P. (2002). Scaling detection in time series: Diffusion
 % entropy analysis. Phys. Rev. E, 66, 036130. https://doi.org/10.1103/PhysRevE.66.036130
 
@@ -94,7 +94,7 @@ end
                             
                         end
                         
-                        if Rule == 0 %% velocity
+                        if Rule == 0 
                             State0 = zeros( Lenghtdata, 1) ;
                                  for yy =  1 : Lenghtdata
                                      
