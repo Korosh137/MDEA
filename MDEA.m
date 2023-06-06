@@ -1,4 +1,3 @@
-
 function delta  = MDEA(Data, Stripesize, Rule, ST, EN, PLOT)
 
 % Korosh Mahmoodi, 02/28/2023.
@@ -47,7 +46,7 @@ function delta  = MDEA(Data, Stripesize, Rule, ST, EN, PLOT)
                                    
 %%% Extracting events using stripes; Each time that the Data passes from
 %%% one stripe to a different one gets recorded as an event.
-Ddata = Data./(Stripesize); 
+Ddata = Data./(Stripesize); %% This projects Data to the interval [0 1/Stripesize]; consequently, whole numbers would limit stripes. So, using floor and ceil commands, we can determine when the time series passes from one stripe to a different one (line 57).
 Event = zeros(Lenghtdata, 1);
 
 k = 1 ;
