@@ -46,13 +46,15 @@ function delta  = MDEA(Data, Stripesize, Rule, ST, EN, PLOT)
                                    
 %%% Extracting events using stripes; Each time that the Data passes from
 %%% one stripe to a different one gets recorded as an event.
-Ddata = Data./(Stripesize); %% This projects Data to the interval [0 1/Stripesize]; consequently, whole numbers would limit stripes. So, using floor and ceil commands, we can determine when the time series passes from one stripe to a different one (line 57).
+Ddata = Data./(Stripesize); %%% This projects Data to the interval [0 1/Stripesize]; consequently, whole numbers would limit stripes.
+%%% So, using floor and ceil commands, we can determine when the time series passes from one stripe to a different one (line 57).
 Event = zeros(Lenghtdata, 1);
 
 k = 1 ;
 Event(1) = 1 ;
 StartEvent = zeros() ;
 
+%%% This loop defines the events (crossings from one stripe to another.)
 for i = 2 : Lenghtdata
     if ( Ddata(i) < floor(Ddata(i-1)) ) || (Ddata(i) > ceil(Ddata(i-1))  )
                         Event(i) = 1;
@@ -65,7 +67,6 @@ k = k + 1;
 end
 
 %%% Creating diffusion trajectory (Diff) from extracted events (Event.)                        
-
                         StartEvent = StartEvent(StartEvent~=0) ;
                         if Rule == 1
                              Diff = cumsum(Event) ;   
